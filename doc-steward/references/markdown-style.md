@@ -4,10 +4,11 @@ Keep Markdown easy to read, easy to diff, and lintable.
 
 ## Defaults
 
-- Wrap prose at 100 characters where practical.
+- Wrap prose at 100 characters unless the repo config sets a different limit.
 - Put a blank line after headings and between paragraphs.
-- Put blank lines around lists, blockquotes, and fenced code blocks.
+- Put a blank line before and after lists, blockquotes, and fenced code blocks.
 - Use fenced code blocks with triple backticks and specify the language.
+- Exception: in Rustdoc where Rust is implied, omit explicit code fence language if needed.
 - Prefer descriptive headings and consistent list punctuation.
 
 ## Code Blocks

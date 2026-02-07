@@ -3,6 +3,20 @@
 Use this checklist to review existing docs or a doc diff. Prefer concrete edits over vague
 feedback.
 
+## Evidence And Confidence
+
+- Label key claims as `Confirmed`, `Inferred`, or `Unknown` when uncertainty exists.
+- `Confirmed` claims should map to code/tests/runtime behavior.
+- `Inferred` claims should state what evidence supports the inference.
+- `Unknown` claims should include the missing evidence needed to confirm.
+- Keep `Unknown` count intentionally low for the current pass scope.
+
+## Unknown Confirmation
+
+- Remaining `Unknown` items are listed as numbered entries with file/section context.
+- Review output ends with a confirmation prompt:
+  - "Confirm whether to keep all remaining Unknowns, or list item numbers to resolve now."
+
 ## Correctness
 
 - Matches the code: names, flags, defaults, error cases, and constraints.
@@ -16,6 +30,24 @@ feedback.
 - Defines terms once; uses the same terms consistently.
 - Includes the next step: what the reader should do after finishing this section.
 - Covers failure modes that matter (common misconfigurations, bad inputs).
+
+## Documentation Depth
+
+- For each module in scope, docs include purpose, boundaries, and invariants.
+- For each type in scope, docs include role, semantics, and invariants.
+- For each method/function in scope, docs include purpose, assumptions, and side effects.
+- Non-trivial methods/functions include input/output semantics and edge/failure behavior.
+- Comments explain intent and constraints, not just line-by-line mechanics.
+- A coverage ledger is provided: documented vs total modules/types/functions in scope.
+- Remaining undocumented items are listed with exact file paths and line anchors.
+- Reject docs that only restate names/signatures.
+
+Depth scoring checkpoints:
+
+1. Score samples using `L0` to `L3` from `doc-depth.md`.
+1. Treat `L0` as failing and block finalization until upgraded.
+1. In `full` passes, keep `L0` at `0` and keep non-trivial code at `L2+`.
+1. Include at least 3 concrete shallow-to-improved rewrites in review output when depth issues exist.
 
 ## Clarity
 

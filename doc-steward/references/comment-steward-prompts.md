@@ -81,6 +81,38 @@ Output:
   docs).
 ```
 
+## PR Narration Prompt
+
+Use this when reviewing a PR with weak or missing documentation:
+
+```text
+Use PR Narration mode.
+
+1. Summarize the problem and intended behavior change.
+2. Explain the updated mental model in reviewer-friendly terms.
+3. Extract implicit contracts/invariants and classify each as:
+   - Confirmed (tests/types/runtime checks)
+   - Inferred (supported but not directly enforced)
+   - Unknown (needs maintainer confirmation)
+4. List documentation deltas required before merge.
+5. List top design risks or ambiguities in blunt terms.
+```
+
+## Documentation Remediation Prompt
+
+Use this when docs quality is mixed across the repo:
+
+```text
+Use Recovery mode to audit and remediate documentation drift.
+
+Workflow:
+1. Inventory key doc artifacts (README, guides, API docs, comments).
+2. Score each for correctness, completeness, and drift risk.
+3. Produce a prioritized backlog with concrete fixes.
+4. Apply the top small batch of fixes.
+5. Report unresolved debt and next recommended batch.
+```
+
 ## Docstring Template (Language-Agnostic)
 
 Use this format when applicable:
