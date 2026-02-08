@@ -33,8 +33,8 @@ If the user does not pick a mode, ask one short question:
 
 - "What do you want to achieve?"
 
-Offer these options and map to modes. Include the short "use when" and "includes" guidance so the
-user can pick without guessing:
+Offer these options so the user can choose a mode. Include the short "use when" and "includes"
+guidance so they can pick without guessing:
 
 1. `Ratchet Mode`: improve existing docs while keeping tone.
    Use when docs already exist and mostly work. Includes targeted clarity/correctness edits and

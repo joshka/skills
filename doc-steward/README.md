@@ -1,57 +1,95 @@
 # Doc Steward
 
-`doc-steward` helps you create, upgrade, and review developer documentation with high signal and low
-noise.
-
-It is built for real maintenance work: preserving local tone, reducing doc drift, and making
-changes easier to review.
+`doc-steward` helps you write, upgrade, and review developer docs with clear contracts and low
+maintenance drift.
 
 ## Start Here
 
-Use the front door:
+Front door (recommended):
 
 ```text
 Use $doc-steward.
 ```
 
-Then pick the goal that matches your situation.
+Direct mode entry (skip menu):
 
-## Pick The Right Mode
+```text
+Use $doc-steward in PR Narration mode as a contributor, focused on touched files, with a quick pass.
+```
 
-1. `Ratchet Mode`: improve existing docs without changing project voice.
-1. `PR Narration Mode`: explain a PR's intent, contracts, risks, and required doc updates.
-1. `Bootstrap Mode`: create a practical first README and onboarding path.
-1. `Greenfield Full Coverage Approach`: document a new codebase deeply, including private logic.
-1. `Docstring / Rustdoc Mode`: update API and implementation docs after behavior changes.
-1. `Recovery Mode`: repair stale or inconsistent docs in mixed-quality repos.
-1. `Bulk Update Mode`: standardize terminology and structure across many docs.
-1. `Process Improvement Mode`: define repo-level docs standards and contributor workflow.
+## One-Liner Expectations
 
-## What You Should Get
+When you run a one-liner, expect this flow:
 
-The output should be concrete, not advisory only.
-
-1. A docs patch (or exact file edits) for the selected scope.
-1. A drift list (what was stale/inconsistent and what was fixed).
-1. A follow-up list with prioritized next steps.
-1. An Unknown confirmation step at the end.
+1. The assistant asks you to choose a mode, unless your one-liner already names one.
+1. It asks for profile only if needed (`use defaults` is valid).
+1. It produces concrete outputs, not advice only.
+1. It ends with Unknown confirmation if any Unknowns remain.
 
 For `full` and Greenfield-style runs, expect:
 
 1. Coverage ledger for modules, types, and functions in scope.
-1. Depth check summary (`L0`/`L1`/`L2`/`L3`).
-1. Explicit shallow-to-improved rewrite examples when depth is weak.
+1. Depth summary (`L0`/`L1`/`L2`/`L3`).
+1. Shallow-to-improved rewrite examples when depth is weak.
 
-## Interaction Pattern
+## Choose A Mode
 
-Give minimal context and iterate:
+1. [`Ratchet Mode`](#ratchet-mode): improve existing docs while preserving local tone.
+1. [`PR Narration Mode`](#pr-narration-mode): explain PR intent, contracts, risks, and doc deltas.
+1. [`Bootstrap Mode`](#bootstrap-mode): create a usable first README and onboarding path.
+1. [`Greenfield Full Coverage Approach`](#greenfield-full-coverage-approach): deep early docs,
+   including private logic.
+1. [`Docstring / Rustdoc Mode`](#docstring--rustdoc-mode): align API and implementation docs with
+   behavior.
+1. [`Recovery Mode`](#recovery-mode): repair stale or inconsistent docs in mixed-quality repos.
+1. [`Bulk Update Mode`](#bulk-update-mode): standardize terminology and structure across many docs.
+1. [`Process Improvement Mode`](#process-improvement-mode): define repo-level standards and docs
+   workflow.
 
-1. Choose mode.
-1. Keep defaults or set a profile.
-1. Review outputs.
-1. Ask for another pass until coverage/depth goals are met.
+### Ratchet Mode
 
-Useful replies:
+Use when docs mostly work and you want targeted improvements.
+You should get: focused doc edits, drift fixes, and prioritized follow-ups.
+
+### PR Narration Mode
+
+Use for reviewer handoff when code context is implicit.
+You should get: PR narrative, contract summary, doc deltas, and risk list.
+
+### Bootstrap Mode
+
+Use when a repo has little or no docs.
+You should get: first README, quick-start path, assumptions, and next additions.
+
+### Greenfield Full Coverage Approach
+
+Use when you want full documentation depth early.
+You should get: repo-wide coverage ledger, depth summary, concrete rewrites, and closure on
+remaining unknowns.
+
+### Docstring / Rustdoc Mode
+
+Use after behavior/interface changes.
+You should get: updated contracts on relevant symbols and doc/test alignment notes.
+
+### Recovery Mode
+
+Use when docs are mixed quality or stale.
+You should get: prioritized backlog, first remediation batch, and remaining drift ledger.
+
+### Bulk Update Mode
+
+Use for larger consistency passes.
+You should get: normalized terminology/structure and unresolved drift report.
+
+### Process Improvement Mode
+
+Use when setting repo/team documentation standards.
+You should get: standards proposal, AGENTS guidance draft, and adoption checklist.
+
+## Feedback Loop
+
+Use short replies to control iteration:
 
 ```text
 use defaults
@@ -69,23 +107,11 @@ Proceed and keep iterating until coverage and depth gates are satisfied.
 Resolve unknown items 1 and 3 now.
 ```
 
-## Greenfield Full Coverage
-
-Use this when you want deep docs early and do not want to defer quality.
-
-Definition of done:
-
-1. README and quick path are usable from a clean checkout.
-1. Non-test module/type/function docs meet coverage targets.
-1. Non-trivial code has meaningful contract depth (not signature restatement).
-1. Remaining unknowns are explicitly accepted or resolved.
-1. Validation checks pass for the target repo.
-
 ## Constraints And Guardrails
 
-1. Docs should explain purpose, constraints, invariants, side effects, and edge behavior.
-1. Avoid comments that only restate names or signatures.
-1. Treat docs as part of the contract; keep behavior and docs aligned in the same change.
+1. Prioritize purpose, constraints, invariants, side effects, and edge behavior.
+1. Avoid comments that only restate names/signatures.
+1. Keep docs and behavior aligned in the same change.
 1. Keep Unknown items bounded and explicitly confirmed.
 
 ## References
