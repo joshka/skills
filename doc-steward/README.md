@@ -174,7 +174,7 @@ Use when you want reusable documentation standards for a repo/team.
 
 - Propose markdownlint setup (`markdownlint-cli2`, 100-char lines unless overridden).
 - Recommend repo-native planning/documentation workflows instead of one fixed structure.
-- In this repo specifically, we track skill evolution in `doc-steward/PLAN.md`.
+- In this repo specifically, we track skill evolution in [PLAN.md](PLAN.md).
 - Draft `AGENTS.md` standards and skill pointers for downstream reuse.
 
 ## Quick Invocations
@@ -201,7 +201,7 @@ Use $doc-steward in Process Improvement mode as a repo owner, repo-wide, with a 
 Use $doc-steward with the Greenfield Full Coverage approach as a repo owner, repo-wide, with full detail.
 ```
 
-For more short variants, see `doc-steward/references/quick-modes.md`.
+For more short variants, see [references/quick-modes.md](references/quick-modes.md).
 
 ## Repeatable Approaches
 
@@ -219,11 +219,11 @@ Run this sequence:
 
 Before drafting, load:
 
-1. `references/doc-depth.md`
-1. `references/docs-bootstrap.md`
-1. `references/rustdoc.md`
-1. `references/docs-remediation.md`
-1. `references/doc-review-rubric.md`
+1. [references/doc-depth.md](references/doc-depth.md)
+1. [references/docs-bootstrap.md](references/docs-bootstrap.md)
+1. [references/rustdoc.md](references/rustdoc.md)
+1. [references/docs-remediation.md](references/docs-remediation.md)
+1. [references/doc-review-rubric.md](references/doc-review-rubric.md)
 
 Coverage policy:
 
@@ -243,7 +243,8 @@ Quality floor:
 
 - Avoid docs that only restate names/signatures.
 - Prefer contract, constraints, and intent over implementation narration.
-- In `full` runs, use depth levels from `references/doc-depth.md` and eliminate `L0` items.
+- In `full` runs, use depth levels from [references/doc-depth.md](references/doc-depth.md) and
+  eliminate `L0` items.
 
 Definition of done:
 
@@ -325,8 +326,8 @@ Expected output:
 
 ## References
 
-- Skill contract: `doc-steward/SKILL.md`
-- Improvement roadmap: `doc-steward/PLAN.md`
-- Review checklist: `doc-steward/references/doc-review-rubric.md`
-- Diataxis guide: `doc-steward/references/diataxis.md`
-- Depth guide: `doc-steward/references/doc-depth.md`
+- Skill contract: [SKILL.md](SKILL.md)
+- Improvement roadmap: [PLAN.md](PLAN.md)
+- Review checklist: [references/doc-review-rubric.md](references/doc-review-rubric.md)
+- Diataxis guide: [references/diataxis.md](references/diataxis.md)
+- Depth guide: [references/doc-depth.md](references/doc-depth.md)
