@@ -36,28 +36,28 @@ If the user does not pick a mode, ask one short question:
 Offer these options and map to modes. Include the short "use when" and "includes" guidance so the
 user can pick without guessing:
 
-1. Improve existing docs while keeping tone -> `Ratchet Mode`.
+1. `Ratchet Mode`: improve existing docs while keeping tone.
    Use when docs already exist and mostly work. Includes targeted clarity/correctness edits and
    drift fixes.
-1. Explain and review a PR -> `PR Narration Mode`.
+1. `PR Narration Mode`: explain and review a PR.
    Use during author/reviewer handoff. Includes PR narrative, contracts/invariants, doc deltas,
    and review risks.
-1. Create first docs for a new project -> `Bootstrap Mode`.
+1. `Bootstrap Mode`: create first docs for a new project.
    Use when docs are minimal/absent and speed matters. Includes README, quick start, usage, config,
    and basic troubleshooting.
-1. Fully document a new app, including private methods -> `Greenfield Full Coverage Approach`.
+1. `Greenfield Full Coverage Approach`: fully document a new app, including private methods.
    Use when you want deep docs now, not later. Includes repo-wide module/type/function docs,
    depth checks, and coverage ledger with thresholds.
-1. Update API docs/docstrings -> `Docstring / Rustdoc Mode`.
+1. `Docstring / Rustdoc Mode`: update API docs/docstrings.
    Use when behavior or interfaces changed. Includes contract-focused doc updates and alignment with
    tests/call sites.
-1. Repair mixed-quality docs -> `Recovery Mode`.
+1. `Recovery Mode`: repair mixed-quality docs.
    Use when docs are inconsistent or stale. Includes audit, prioritized backlog, and first
    remediation batch.
-1. Run a broad consistency pass -> `Bulk Update Mode`.
+1. `Bulk Update Mode`: run a broad consistency pass.
    Use for large standardization passes. Includes terminology/style normalization and unresolved
    drift report.
-1. Improve repo-wide docs process/standards -> `Process Improvement Mode`.
+1. `Process Improvement Mode`: improve repo-wide docs process/standards.
    Use when defining team/repo defaults. Includes AGENTS.md guidance, lint standards, and adoption
    checklist.
 
@@ -80,6 +80,28 @@ Constraints (default repo style and lint rules): `style rules` preserve local
 voice/terminology/conventions; `lint requirements` enforce configured lint checks (for example
 `markdownlint-cli2`).
 
+Prompt format after mode selection (required for clarity):
+
+1. Ask for profile in one line:
+   `Optional profile: reply with 'owner, repo-wide, full, preserve-local' or 'use defaults'.`
+1. Immediately state effective defaults for the selected mode:
+   `Effective defaults for this mode = <role>, <reach>, <depth>, <style-authority>.`
+1. If mode preset overrides baseline defaults, state that explicitly:
+   `This mode overrides baseline defaults.`
+1. If the user replies `use defaults`, proceed without further profile questions.
+1. Avoid vague phrasing like "I’ll apply defaults" without listing the actual defaults.
+
+Mode preset defaults:
+
+1. `Ratchet Mode`: `contributor`, `touched-files`, `quick`, `preserve-local`.
+1. `PR Narration Mode`: `contributor`, `touched-files`, `quick`, `preserve-local`.
+1. `Bootstrap Mode`: `contributor`, `touched-files`, `quick`, `preserve-local`.
+1. `Greenfield Full Coverage Approach`: `owner`, `repo-wide`, `full`, `preserve-local`.
+1. `Docstring / Rustdoc Mode`: `contributor`, `touched-files`, `quick`, `preserve-local`.
+1. `Recovery Mode`: `contributor`, `touched-files`, `quick`, `preserve-local`.
+1. `Bulk Update Mode`: `owner`, `repo-wide`, `full`, `preserve-local`.
+1. `Process Improvement Mode`: `owner`, `repo-wide`, `quick`, `preserve-local`.
+
 ## Session Calibration (First Run In A Repo)
 
 When repo usage style is unclear, ask short setup questions before drafting:
@@ -89,7 +111,7 @@ When repo usage style is unclear, ask short setup questions before drafting:
 1. Output depth: `quick` or `full`.
 1. Style authority: `preserve-local` or `normalize-lightly`.
 
-Use these defaults when the user does not choose:
+Baseline defaults (used when a mode has no preset override):
 
 - Role: `contributor`
 - Reach: `touched-files`

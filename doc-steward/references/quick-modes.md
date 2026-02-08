@@ -50,6 +50,37 @@ At the end of a run, output this compact line for next time:
 Next run: Use $doc-steward in <mode>, as a <role>, with <reach> scope and <depth> detail.
 ```
 
+## Front-Door Profile Reply
+
+Use this short exchange after the user picks a mode:
+
+```text
+Optional profile: reply with 'owner, repo-wide, full, preserve-local' or 'use defaults'.
+Effective defaults for this mode = <role>, <reach>, <depth>, <style-authority>.
+This mode overrides baseline defaults.   # Include only when true.
+```
+
+Valid user replies:
+
+```text
+use defaults
+```
+
+```text
+owner, repo-wide, full, preserve-local
+```
+
+Mode preset defaults:
+
+1. Ratchet/PR Narration/Bootstrap/Docstring/Recovery:
+   `contributor, touched-files, quick, preserve-local`.
+1. Greenfield Full Coverage:
+   `owner, repo-wide, full, preserve-local`.
+1. Bulk Update:
+   `owner, repo-wide, full, preserve-local`.
+1. Process Improvement:
+   `owner, repo-wide, quick, preserve-local`.
+
 ## Unknown Confirmation
 
 At the end of a pass, ask for explicit confirmation to keep remaining unknowns as-is.

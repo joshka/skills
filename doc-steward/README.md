@@ -58,21 +58,21 @@ If you ask for `doc-steward` without selecting a mode, the skill should ask one 
 
 Then map to one mode:
 
-1. Ratchet docs quality in an existing project.
+1. `Ratchet Mode`: ratchet docs quality in an existing project.
    Use when docs mostly exist and need focused improvements.
-1. Review/narrate a PR and document design intent.
+1. `PR Narration Mode`: review/narrate a PR and document design intent.
    Use during PR author/reviewer handoff.
-1. Create first docs for a new project.
+1. `Bootstrap Mode`: create first docs for a new project.
    Use when you need minimum viable docs fast.
-1. Fully document a new app, including private methods.
+1. `Greenfield Full Coverage Approach`: fully document a new app, including private methods.
    Use when you want deep module/type/function coverage from the start.
-1. Update API docs/docstrings for changed behavior and internals.
+1. `Docstring / Rustdoc Mode`: update API docs/docstrings for changed behavior and internals.
    Use when interfaces or behavior changed.
-1. Repair mixed-quality docs in an existing project.
+1. `Recovery Mode`: repair mixed-quality docs in an existing project.
    Use when docs are stale, inconsistent, or fragmented.
-1. Run a bulk docs pass for consistency/drift.
+1. `Bulk Update Mode`: run a bulk docs pass for consistency/drift.
    Use for broad terminology/style normalization.
-1. Improve repo-wide docs process and standards.
+1. `Process Improvement Mode`: improve repo-wide docs process and standards.
    Use when setting team/repo documentation defaults.
 
 Bootstrap vs Greenfield:
@@ -93,6 +93,30 @@ contributors following setup/usage docs.
 Constraints (default repo style and lint rules): `style rules` preserve local
 voice/terminology/conventions; `lint requirements` enforce configured lint checks (for example
 `markdownlint-cli2`).
+
+How the profile prompt should look:
+
+1. Assistant prompt:
+   `Optional profile: reply with 'owner, repo-wide, full, preserve-local' or 'use defaults'.`
+1. Explicit effective-default line for the selected mode:
+   `Effective defaults for this mode = <role>, <reach>, <depth>, <style-authority>.`
+1. If applicable, state override:
+   `This mode overrides baseline defaults.`
+1. User can reply with either:
+   `use defaults`
+1. Or an explicit profile:
+   `owner, repo-wide, full, preserve-local`
+
+Mode preset defaults:
+
+1. Ratchet/PR Narration/Bootstrap/Docstring/Recovery:
+   `contributor, touched-files, quick, preserve-local`.
+1. Greenfield Full Coverage:
+   `owner, repo-wide, full, preserve-local`.
+1. Bulk Update:
+   `owner, repo-wide, full, preserve-local`.
+1. Process Improvement:
+   `owner, repo-wide, quick, preserve-local`.
 
 ## Modes
 
