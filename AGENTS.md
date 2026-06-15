@@ -10,6 +10,9 @@ focused on individual skills.
 - `doc-steward/README.md`: day-to-day usage guidance.
 - `doc-steward/PLAN.md`: local improvement plan for this repo.
 - `doc-steward/references/`: reusable prompts, rubrics, and style guides.
+- `thread-closeout/`: active Codex closeout skill.
+- `thread-closeout/SKILL.md`: closeout workflow and artifact contract.
+- `thread-closeout/agents/openai.yaml`: UI metadata for the skill.
 - `.markdownlint-cli2.yaml`: Markdown lint configuration.
 
 When adding a new skill, follow the same pattern: `<skill-name>/SKILL.md` plus targeted references.

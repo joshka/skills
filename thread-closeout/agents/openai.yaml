@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thread Closeout"
+  short_description: "Close out Codex threads with improvement routing"
+  default_prompt: "Use $thread-closeout to produce a reviewable closeout for this Codex thread."

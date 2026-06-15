@@ -14,6 +14,8 @@ skills I use over time.
 ## Current Skills
 
 - `doc-steward`: documentation drafting, review, and maintenance workflows.
+- `thread-closeout`: reviewable Codex thread closeouts with validation, failures, follow-ups, and
+  improvement routing.
 
 ## Layout
 
@@ -26,6 +28,9 @@ skills I use over time.
 │   ├── README.md
 │   ├── PLAN.md
 │   └── references/
+├── thread-closeout/
+│   ├── SKILL.md
+│   └── agents/
 └── ... (additional skills over time)
 ```
 
