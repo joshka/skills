@@ -1,0 +1,4 @@
+interface:
+  display_name: "JJ LFS GitHub"
+  short_description: "Publish LFS-backed assets from jj repos"
+  default_prompt: "Use $jj-lfs-github to publish binary assets from a jj repository to GitHub with Git LFS."
