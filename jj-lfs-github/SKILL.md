@@ -74,6 +74,39 @@ the verification below proves jj is about to publish raw binary blobs.
    The committed blob size should be around a pointer-file size, commonly near 130 bytes. The
    content must be the LFS pointer text, not GIF/PNG/JPEG bytes.
 
+## Deployment Consumers
+
+LFS correctness at the PR boundary is necessary but not sufficient when another workflow consumes
+the assets. GitHub Pages, release packaging, docs builds, and asset publishing jobs can still deploy
+the pointer files if their checkout does not fetch LFS content.
+
+For GitHub Actions consumers, inspect the workflow before merging. `actions/checkout` should enable
+LFS when the build output needs real asset bytes:
+
+```yaml
+- uses: actions/checkout@v4
+  with:
+    lfs: true
+```
+
+Add an artifact guard near the build step for important generated media. Prefer checking the built
+or packaged output, not only the repository checkout:
+
+```bash
+file site/dist/assets/demo.gif | grep -F "GIF image data"
+file site/dist/assets/frame.png | grep -F "PNG image data"
+! grep -F "version https://git-lfs.github.com/spec/v1" site/dist/assets/demo.gif
+```
+
+After deployment, verify the served artifact directly if the asset is user-visible:
+
+```bash
+curl -sL https://example.com/assets/demo.gif | head -c 6
+```
+
+The response should start with real file magic such as `GIF89a` or PNG header bytes, not
+`version https://git-lfs.github.com/spec/v1`.
+
 ## Choosing The Publication Shape
 
 Use the smallest workflow that preserves correctness.
@@ -100,6 +133,8 @@ If any of these appear, pause publication and inspect the real Git objects:
 - GitHub rejects the push for large files or shows full binary blobs in the PR diff.
 - `git lfs ls-files` does not list the new assets after commit.
 - `git status` is clean but `jj status` reports LFS files modified, or vice versa.
+- A deployed or packaged asset has pointer-file content, a tiny content length around 130 bytes, or
+  starts with `version https://git-lfs.github.com/spec/v1`.
 
 When `git status` and `jj status` disagree because checkout files are real LFS content while Git
 commits store pointer blobs, trust verified Git objects for GitHub publication. Do not "fix" that
@@ -114,6 +149,8 @@ Before opening or updating a GitHub PR:
 - Staged or committed asset blobs are LFS pointers.
 - `git lfs ls-files` lists each binary asset.
 - LFS objects upload during push, or `git lfs push origin <branch>` succeeds.
+- Any GitHub Actions job that packages or deploys the assets checks out LFS content and verifies
+  the built artifact contains real media bytes.
 - The PR body mentions LFS-backed assets when relevant.
 
 Use `gh pr create` or `gh pr merge --auto` only after these checks pass.
