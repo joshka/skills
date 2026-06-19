@@ -14,6 +14,7 @@ skills I use over time.
 ## Current Skills
 
 - `doc-steward`: documentation drafting, review, and maintenance workflows.
+- `practice-rust-guidance`: routes Rust library and app work to practice guidance entry points.
 - `thread-closeout`: reviewable Codex thread closeouts with validation, failures, follow-ups, and
   improvement routing.
 
@@ -28,6 +29,9 @@ skills I use over time.
 │   ├── README.md
 │   ├── PLAN.md
 │   └── references/
+├── practice-rust-guidance/
+│   ├── SKILL.md
+│   └── agents/
 ├── thread-closeout/
 │   ├── SKILL.md
 │   └── agents/

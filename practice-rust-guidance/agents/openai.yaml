@@ -1,0 +1,4 @@
+interface:
+  display_name: "Practice Rust Guidance"
+  short_description: "Route Rust work to practice guidance"
+  default_prompt: "Use $practice-rust-guidance to choose the right practice guidance entry points for this Rust work."
