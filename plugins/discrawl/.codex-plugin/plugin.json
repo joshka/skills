@@ -1,0 +1,25 @@
+{
+  "name": "discrawl",
+  "version": "0.1.0",
+  "description": "Private Codex workflows for Discrawl local Discord archive search, sync, wiretap DMs, SQL diagnostics, Git snapshots, reports, and remote archive reads.",
+  "author": {
+    "name": "Joshka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Discrawl",
+    "shortDescription": "Local Discord archive workflows.",
+    "longDescription": "Focused Codex skills for using Discrawl to search local Discord archives, check freshness, import Discord Desktop cache messages, inspect local DMs, run read-only SQL, publish or subscribe to private Git snapshots, browse the TUI, generate reports, and read Cloudflare remote archives.",
+    "developerName": "Joshka",
+    "category": "Productivity",
+    "capabilities": [
+      "Guidance"
+    ],
+    "defaultPrompt": [
+      "Search my Discrawl archive.",
+      "Check Discrawl freshness and repair sync state.",
+      "Inspect local Discrawl DMs."
+    ],
+    "brandColor": "#5865F2"
+  }
+}
