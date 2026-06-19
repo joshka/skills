@@ -1,0 +1,25 @@
+{
+  "name": "gitcrawl",
+  "version": "0.1.0",
+  "description": "Private Codex workflows for Gitcrawl local GitHub archive search, sync, clustering, and maintainer triage.",
+  "author": {
+    "name": "Joshka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Gitcrawl",
+    "shortDescription": "Local GitHub archive triage workflows.",
+    "longDescription": "Focused Codex skills for using Gitcrawl to search cached GitHub issues and pull requests, refresh local archive data, inspect duplicate clusters, apply local governance decisions, index source code, and work with portable stores.",
+    "developerName": "Joshka",
+    "category": "Productivity",
+    "capabilities": [
+      "Guidance"
+    ],
+    "defaultPrompt": [
+      "Find duplicate issues with Gitcrawl.",
+      "Refresh and triage a Gitcrawl cluster.",
+      "Search a local Gitcrawl archive."
+    ],
+    "brandColor": "#256D85"
+  }
+}

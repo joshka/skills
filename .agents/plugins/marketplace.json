@@ -1,0 +1,20 @@
+{
+  "name": "local-skills",
+  "interface": {
+    "displayName": "Local Skills"
+  },
+  "plugins": [
+    {
+      "name": "gitcrawl",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gitcrawl"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
