@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lock Actions"
+  short_description: "Lock GitHub Actions with actions.lock"
+  default_prompt: "Use $lock-actions to move this repo to a GitHub Actions lockfile."
