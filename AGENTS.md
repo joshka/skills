@@ -10,6 +10,9 @@ focused on individual skills.
 - `doc-steward/README.md`: day-to-day usage guidance.
 - `doc-steward/PLAN.md`: local improvement plan for this repo.
 - `doc-steward/references/`: reusable prompts, rubrics, and style guides.
+- `lock-actions/`: GitHub Actions lockfile onboarding skill.
+- `lock-actions/SKILL.md`: survey, lock, CI job, maintainer docs, and PR workflow.
+- `lock-actions/assets/github-actions.md`: maintainer guide template copied into target repos.
 - `thread-closeout/`: active Codex closeout skill.
 - `thread-closeout/SKILL.md`: closeout workflow and artifact contract.
 - `thread-closeout/agents/openai.yaml`: UI metadata for the skill.
